@@ -5,14 +5,8 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      // backgroundColor: ,
-        body: Center(
-          child: Container(
-            height: 300,
-            color: Theme.of(context).colorScheme.surface,
-          ),
-        ),
+    return  const Scaffold(
+
     );
   }
 }
