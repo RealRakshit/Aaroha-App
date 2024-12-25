@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import '../theme/theme.dart';
+import '../pages/home.dart';
+import '../pages/projects.dart';
+import '../pages/events.dart';
+import '../pages/donate.dart';
 
 class CustomBottomBar extends StatefulWidget {
   const CustomBottomBar({super.key});
@@ -11,9 +15,19 @@ class CustomBottomBar extends StatefulWidget {
 class _CustomBottomBarState extends State<CustomBottomBar> {
   int myIndex = 0;
 
+// List of pages to display for each BottomNavigationBar item
+  final List<Widget> pages = [
+    const HomePage(),
+    const ProjectsPage(),
+    const EventsPage(),
+    const DonatePage(),
+  ];
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Scaffold(
+      body:pages[myIndex],
+    
+      bottomNavigationBar:SizedBox(
       height:75.0,
       child:ClipRRect(
       
@@ -40,6 +54,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
           BottomNavigationBarItem(icon: Icon(Icons.volunteer_activism_outlined,size:35), label: 'Donate'),
         ],
       ),
-    ),);
+    ),)
+    );
   }
 }
