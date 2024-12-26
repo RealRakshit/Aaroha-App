@@ -1,19 +1,17 @@
-import 'package:aaroha/pages/donate.dart';
-import 'package:aaroha/pages/events.dart';
-import 'package:aaroha/pages/projects.dart';
+import 'package:aaroha/components/app_bar.dart';
+import 'package:aaroha/components/app_drawer1.dart';
+import 'package:aaroha/components/bottom_navbar.dart';
 import 'package:flutter/material.dart';
-
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key, required this.title});
-
   final String title;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
-      body: Column(
+      bottomNavigationBar: const CustomBottomBar(),
+      body: const Column(
         children: [
           Expanded(
             child: HomePage(),
@@ -25,12 +23,15 @@ class MyHomePage extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
-
+    final scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
+      drawer: const AppDrawer(),
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: Column(
@@ -51,40 +52,11 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 34),
-                  color: Colors.transparent,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.menu,
-                            color: Color.fromRGBO(46, 242, 252, 1)),
-                        iconSize: 40.0,
-                        onPressed: () {},
-                      ),
-                      Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            'AAROHA',
-                            style: TextStyle(
-                              color: const Color.fromRGBO(46, 242, 252, 1),
-                              fontSize: screenWidth * .1,
-                              fontWeight: FontWeight.w900,
-                            ),
-                          ),
-                        ],
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.notifications,
-                            color: Color.fromRGBO(46, 242, 252, 1)),
-                        iconSize: 42,
-                        onPressed: () {},
-                      ),
-                    ],
-                  ),
+                //App Bar
+                CustomAppBar(
+                  title: "AAROHA",
+                  titleTheme: Theme.of(context).textTheme.headlineLarge,
+                  iconColor: Theme.of(context).colorScheme.tertiary,
                 ),
                 const Positioned(
                   bottom: 25,
@@ -116,19 +88,19 @@ class HomePage extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {},
-                    child: Text(
-                      'Mission',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Theme.of(context).colorScheme.primary,
                       side: BorderSide(
                         color: Theme.of(context).colorScheme.primary,
                         width: 2,
+                      ),
+                    ),
+                    child: const Text(
+                      'Mission',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),
@@ -143,11 +115,11 @@ class HomePage extends StatelessWidget {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  const Text(
+                   Text(
                     'As students our heart beats for only one accomplishment. We want to embellish the lives of every single child who is deprived of its basic needs i.e., right to education and nutritious food. Overall development of the poor children is what makes this organisation stand with strength.',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Color.fromRGBO(24, 123, 157, 1),
+                      color: Theme.of(context).colorScheme.secondary,
                     ),
                   ),
                   const SizedBox(height: 16),
@@ -160,6 +132,9 @@ class HomePage extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Theme.of(context).colorScheme.primary,
+                    ),
                     child: const Text(
                       'What we do?',
                       style: TextStyle(
@@ -167,9 +142,6 @@ class HomePage extends StatelessWidget {
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
                       ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Theme.of(context).colorScheme.primary,
                     ),
                   ),
                   const SizedBox(height: 16),
@@ -185,8 +157,8 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
+             Padding(
+              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 20),
               child: Column(
                 children: [
                   Row(
@@ -198,28 +170,28 @@ class HomePage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
-                              children: const [
-                                Icon(Icons.restaurant,
-                                    color: Color.fromRGBO(24, 123, 157, 1),
+                              children: [
+                                 Icon(Icons.restaurant,
+                                    color: Theme.of(context).colorScheme.secondary,
                                     size: 22),
-                                SizedBox(width: 6),
+                                const SizedBox(width: 6),
                                 Text(
                                   'HEALTHY FOOD',
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
-                                    color: Color.fromRGBO(24, 123, 157, 1),
+                                    color:Theme.of(context).colorScheme.secondary,
                                   ),
                                 ),
                               ],
                             ),
                             const SizedBox(height: 8),
-                            const Text(
+                            Text(
                               'At Aaroha, we strive to combat hunger and malnutrition by providing nutritious meals to underprivileged children, promoting their growth and well-being.',
                               textAlign: TextAlign.start,
                               style: TextStyle(
                                 fontSize: 14,
-                                color: Color.fromRGBO(24, 123, 157, 1),
+                                color: Theme.of(context).colorScheme.secondary,
                               ),
                             ),
                           ],
@@ -231,28 +203,28 @@ class HomePage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
-                              children: const [
+                              children: [
                                 Icon(Icons.health_and_safety,
-                                    color: Color.fromRGBO(24, 123, 157, 1),
+                                    color: Theme.of(context).colorScheme.secondary,
                                     size: 22),
-                                SizedBox(width: 6),
+                                const SizedBox(width: 6),
                                 Text(
                                   'HEALTH CARE',
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
-                                    color: Color.fromRGBO(24, 123, 157, 1),
+                                    color: Theme.of(context).colorScheme.secondary,
                                   ),
                                 ),
                               ],
                             ),
                             const SizedBox(height: 8),
-                            const Text(
+                            Text(
                               'Aaroha prioritizes the health of underprivileged children, offering medical assistance, check-ups, and essential healthcare services to nurture their physical well-being.',
                               textAlign: TextAlign.start,
                               style: TextStyle(
                                 fontSize: 14,
-                                color: Color.fromRGBO(24, 123, 157, 1),
+                                color: Theme.of(context).colorScheme.secondary,
                               ),
                             ),
                           ],
@@ -270,42 +242,42 @@ class HomePage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
-                              children: const [
+                              children: [
                                 Icon(Icons.school,
-                                    color: Color.fromRGBO(24, 123, 157, 1),
+                                    color: Theme.of(context).colorScheme.secondary,
                                     size: 22),
-                                SizedBox(width: 6),
+                                const SizedBox(width: 6),
                                 Text(
                                   'EDUCATION',
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
-                                    color: Color.fromRGBO(24, 123, 157, 1),
+                                    color: Theme.of(context).colorScheme.secondary,
                                   ),
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 8),
-                            const Text(
+                            SizedBox(height: 8),
+                            Text(
                               'Education is a pathway to a better future. Aaroha empowers disadvantaged children through quality primary education, unlocking their potential and dreams.',
                               textAlign: TextAlign.start,
                               style: TextStyle(
                                 fontSize: 14,
-                                color: Color.fromRGBO(24, 123, 157, 1),
+                                color: Theme.of(context).colorScheme.secondary,
                               ),
                             ),
                           ],
                         ),
                       ),
-                      const SizedBox(width: 10),
+                      SizedBox(width: 10),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
-                              children: const [
+                              children: [
                                 Icon(Icons.people,
-                                    color: Color.fromRGBO(24, 123, 157, 1),
+                                    color: Theme.of(context).colorScheme.secondary,
                                     size: 22),
                                 SizedBox(width: 6),
                                 Text(
@@ -313,18 +285,18 @@ class HomePage extends StatelessWidget {
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
-                                    color: Color.fromRGBO(24, 123, 157, 1),
+                                    color: Theme.of(context).colorScheme.secondary,
                                   ),
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 8),
-                            const Text(
+                            SizedBox(height: 8),
+                            Text(
                               'Aaroha provides a caring and nurturing environment, fostering emotional and social development, ensuring every child feels valued and supported.',
                               textAlign: TextAlign.start,
                               style: TextStyle(
                                 fontSize: 14,
-                                color: Color.fromRGBO(24, 123, 157, 1),
+                                color: Theme.of(context).colorScheme.secondary,
                               ),
                             ),
                           ],
@@ -338,83 +310,6 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: Container(
-  decoration: BoxDecoration(
-    color: Color.fromRGBO(24, 123, 157, 1),
-    borderRadius: BorderRadius.only(
-      topLeft: Radius.circular(20.0),
-      topRight: Radius.circular(20.0),
-    ),
-  ),
-  child: ClipRRect(
-    borderRadius: BorderRadius.only(
-      topLeft: Radius.circular(20.0),
-      topRight: Radius.circular(20.0),
-    ),
-    child: BottomNavigationBar(
-      backgroundColor: Theme.of(context).colorScheme.secondary,
-      selectedItemColor: Colors.white,
-      unselectedItemColor: Colors.white60,
-      showSelectedLabels: true,
-      showUnselectedLabels: true,
-      type: BottomNavigationBarType.fixed, 
-      items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Home',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.event),
-          label: 'Events',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.work),
-          label: 'Projects',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.volunteer_activism),
-          label: 'Donate',
-        ),
-      ],
-     onTap: (index) {
-  switch (index) {
-    case 0:
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => HomePage()));
-      break;
-    case 1:
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => const EventsPage()));
-      break;
-    case 2:
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => const ProjectsPage()));
-      break;
-    case 3:
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => const DonatePage()));
-      break;
-    default:
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => HomePage()));
-      break;
-  }
-},
-
-    ),
-  ),
-),
-
     );
   }
 }

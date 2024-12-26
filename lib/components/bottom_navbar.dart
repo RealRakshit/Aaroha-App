@@ -1,9 +1,9 @@
+import 'package:aaroha/pages/donate.dart';
+import 'package:aaroha/pages/events.dart';
+import 'package:aaroha/pages/projects.dart';
 import 'package:flutter/material.dart';
 import '../theme/theme.dart';
 import '../pages/home.dart';
-import '../pages/projects.dart';
-import '../pages/events.dart';
-import '../pages/donate.dart';
 
 class CustomBottomBar extends StatefulWidget {
   const CustomBottomBar({super.key});
@@ -17,7 +17,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
 
 // List of pages to display for each BottomNavigationBar item
   final List<Widget> pages = [
-    const HomePage(),
+    HomePage(),
     const ProjectsPage(),
     const EventsPage(),
     const DonatePage(),
@@ -40,7 +40,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
         backgroundColor: lightMode.colorScheme.surfaceDim,
         selectedItemColor: Colors.white, // Color for selected item
         unselectedItemColor: const Color.fromARGB(145, 255, 255, 255), // Color for unselected items
-        type: BottomNavigationBarType.fixed, 
+        type: BottomNavigationBarType.fixed,
         currentIndex: myIndex,
         onTap: (index) {
           setState(() {

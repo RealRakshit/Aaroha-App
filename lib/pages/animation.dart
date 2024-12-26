@@ -37,10 +37,11 @@ class _AnimationScreenState extends State<AnimationScreen>
     _controller.forward();
 
     Future.delayed(const Duration(seconds: 5), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => HomePage()),
-      );
+      // Navigator.pushReplacement(
+      //   context,
+      //   MaterialPageRoute(builder: (context) => HomePage()),
+      // );
+      Navigator.pushReplacementNamed(context, '/pages/home');
     });
   }
 

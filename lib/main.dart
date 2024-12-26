@@ -1,3 +1,4 @@
+import 'package:aaroha/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'pages/animation.dart'; 
 import 'package:aaroha/theme/theme.dart';
@@ -14,7 +15,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: lightMode,
       debugShowCheckedModeBanner: false,
-      home: const AnimationScreen(), 
+      initialRoute: "/",
+      routes: {
+        "/":(context) => AnimationScreen(),
+        "/pages/home":(context) => MyHomePage(title: "titel",),
+      },
+      // home: const AnimationScreen(),
     );
   }
 }
