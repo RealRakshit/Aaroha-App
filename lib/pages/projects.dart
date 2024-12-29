@@ -1,4 +1,5 @@
 import 'package:aaroha/components/app_bar.dart';
+import 'package:aaroha/components/app_drawer1.dart';
 import 'package:flutter/material.dart';
 
 class ProjectsPage extends StatelessWidget {
@@ -6,49 +7,55 @@ class ProjectsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            CustomAppBar(
-              title: "Projects",
-              titleTheme: Theme.of(context).textTheme.titleLarge,
-              iconColor: Theme.of(context).colorScheme.primary,
-            ),
-           const EventCard(
-              title: "Akshar",
-              description:
-              "A simple but powerful reminder of the positive domino effect a good education can have on many aspects of a person's life and outlook. Aim of Project Akshar: Daily classes at the center for underprivileged children.",
-              imageUrl: "lib/images/akshar.jpg", // Replace with your asset path
-            ),
-           const SizedBox(height: 16), // Add spacing between events
+    return  Scaffold(
+      drawer: const AppDrawer(),
+      appBar: PreferredSize(preferredSize: const Size.fromHeight(90),
+        child: CustomAppBar(
+          title: "Projects",
+          titleTheme: Theme.of(context).textTheme.titleLarge,
+          iconColor: Theme.of(context).colorScheme.primary,
+        ),
+      ),
+      body:  const Padding(
+        padding: EdgeInsets.only(top: 5.0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+             EventCard(
+                title: "Akshar",
+                description:
+                "A simple but powerful reminder of the positive domino effect a good education can have on many aspects of a person's life and outlook. Aim of Project Akshar: Daily classes at the center for underprivileged children.",
+                imageUrl: "lib/images/akshar.jpg", // Replace with your asset path
+              ),
+             SizedBox(height: 16), // Add spacing between events
 
-            // Event 2: Anand
-           const EventCard(
-              title: "Anand",
-              description:
-              "This project was begun back in 2014 with an aim to provide quality education to underprivileged societies. This project beliefs nurturing and shaping minds of children.",
-              imageUrl: "lib/images/big_image.jpg", // Replace with your asset path
-            ),
-           const SizedBox(height: 16),
+              // Event 2: Anand
+             EventCard(
+                title: "Anand",
+                description:
+                "This project was begun back in 2014 with an aim to provide quality education to underprivileged societies. This project beliefs nurturing and shaping minds of children.",
+                imageUrl: "lib/images/big_image.jpg", // Replace with your asset path
+              ),
+             SizedBox(height: 16),
 
-            // Event 3: Aahar
-          const  EventCard(
-              title: "Aahar",
-              description:
-              "In project Aahar, volunteers of IHM Chapter organise food drives which take place on every Sunday. They prepare and provide nutrition rich food for undernourished children and families of slum areas.",
-              imageUrl: "lib/images/aahar.jpg", // Replace with your asset path
-            ),
-          const  SizedBox(height: 16),
+              // Event 3: Aahar
+            EventCard(
+                title: "Aahar",
+                description:
+                "In project Aahar, volunteers of IHM Chapter organise food drives which take place on every Sunday. They prepare and provide nutrition rich food for undernourished children and families of slum areas.",
+                imageUrl: "lib/images/aahar.jpg", // Replace with your asset path
+              ),
+            SizedBox(height: 16),
 
-            // Event 4: Pradan
-           const EventCard(
-              title: "Pradan",
-              description:
-              "This project aims to provide essential resources to the underprivileged children as per the requirements. These resources range from providing nutrition rich food items to medicines, from clothes to sanitary napkins. ",
-              imageUrl: "lib/images/alankaran.jpg", // Replace with your asset path
-            ),
-          ],
+              // Event 4: Pradan
+             EventCard(
+                title: "Pradan",
+                description:
+                "This project aims to provide essential resources to the underprivileged children as per the requirements. These resources range from providing nutrition rich food items to medicines, from clothes to sanitary napkins. ",
+                imageUrl: "lib/images/alankaran.jpg", // Replace with your asset path
+              ),
+            ],
+          ),
         ),
       ),
     );

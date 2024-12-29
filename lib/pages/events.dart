@@ -1,4 +1,5 @@
 import 'package:aaroha/components/app_bar.dart';
+import 'package:aaroha/components/app_drawer1.dart';
 import 'package:flutter/material.dart';
 
 class EventsPage extends StatelessWidget {
@@ -7,16 +8,18 @@ class EventsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
+      drawer: const AppDrawer(),
+      appBar: PreferredSize(preferredSize: const Size.fromHeight(80),
+        child: CustomAppBar(
+          title: "Events",
+          titleTheme: Theme.of(context).textTheme.titleLarge,
+          iconColor: Theme.of(context).colorScheme.primary,
+        ),
+      ),
+      body: const SingleChildScrollView(
         child: Column(
           children: [
-            CustomAppBar(
-              title: "Events",
-              titleTheme: Theme.of(context).textTheme.titleLarge,
-              iconColor: Theme.of(context).colorScheme.primary,
-            ),
-           const EventCard(
-
+           EventCard(
               title: 'Aavishkaar',
               about:
               'Underprivileged children from the slums also participated, emphasizing the joyful aspect of learning. Aarohians provided mentorship, elevating the quality of these projects.',
@@ -25,8 +28,8 @@ class EventsPage extends StatelessWidget {
               image1: 'lib/images/big_image.jpg',
               image2: 'lib/images/avishkar.jpg',
             ),
-           const SizedBox(height: 16),
-          const  EventCard(
+           SizedBox(height: 16),
+          EventCard(
               title: 'Aasha',
               about:
               'Aasha is a series of events and activities that provide children from underprivileged communities with opportunities to explore and showcase their talents.',
@@ -35,8 +38,8 @@ class EventsPage extends StatelessWidget {
               image1: 'lib/images/aasha.jpg',
               image2: 'lib/images/anand.jpg',
             ),
-           const SizedBox(height: 16),
-           const EventCard(
+           SizedBox(height: 16),
+           EventCard(
               title: 'A Se Ah',
               about:
               '‘A se Ah’ is an annual event conducted under Project Anand by Aaroha. It recreates the spirit of an annual school function for the underprivileged children.',
@@ -45,8 +48,8 @@ class EventsPage extends StatelessWidget {
               image1: 'lib/images/a_se_ah.jpg',
               image2: 'lib/images/a_se_ah2.jpg',
             ),
-           const SizedBox(height: 16),
-           const EventCard(
+           SizedBox(height: 16),
+           EventCard(
               title: 'Aakar',
               about:
               'Initiated in 2014, Project Aakar aims at the holistic development of children. Each weekend, diverse activities are organized to equip them with multidisciplinary skills.',
@@ -55,8 +58,8 @@ class EventsPage extends StatelessWidget {
               image1: 'lib/images/aakar.jpg',
               image2: 'lib/images/aakar2.jpg',
             ),
-           const SizedBox(height: 16),
-          const  EventCard(
+           SizedBox(height: 16),
+          EventCard(
               title: 'Fund Raising',
               about:
               'Every year, on Independence Day (15th August) and Republic Day (26th January), Aaroha organizes fundraising events across different locations in Bhopal.',
@@ -65,8 +68,8 @@ class EventsPage extends StatelessWidget {
               image1: 'lib/images/fund_raising.jpg',
               image2: 'lib/images/aahar.jpg',
             ),
-           const SizedBox(height: 16),
-          const  EventCard(
+           SizedBox(height: 16),
+          EventCard(
               title: 'Unmilanam',
               about:
               'Unmilanam is an event designed to celebrate the essence of the Indian education system. A distinguished guest is invited to speak about the importance of education.',
@@ -75,8 +78,8 @@ class EventsPage extends StatelessWidget {
               image1: 'lib/images/unmilnam.jpg',
               image2: 'lib/images/akshar.jpg',
             ),
-           const SizedBox(height: 16),
-          const  EventCard(
+           SizedBox(height: 16),
+          EventCard(
               title: 'Alankaran',
               about:
               'Alankaran is a formal event organized to honor the outgoing final-year management team of Aaroha and to recognize the dedication and hard work of volunteers.',
