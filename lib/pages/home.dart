@@ -10,7 +10,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
-      bottomNavigationBar: const CustomBottomBar(),
+        bottomNavigationBar: const CustomBottomBar(),
       body: const Column(
         children: [
           Expanded(
