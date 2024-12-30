@@ -9,23 +9,26 @@ class DonatePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Donate"),
+      appBar: PreferredSize(preferredSize: const Size.fromHeight(90),
+        child: CustomAppBar(
+          title: "Donate",
+          titleTheme: Theme.of(context).textTheme.titleLarge,
+          iconColor: Theme.of(context).colorScheme.primary,
+        ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            // Add space above the DonationCard
-            const SizedBox(height: 200), // Adjust the height as needed
-            DonationCard(
+      body: const Center(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10.0),
+          child: SizedBox(
+            height: 420,
+            child: DonationCard(
               title: "Support Our Cause",
               description: "Your donation helps us provide essential resources to those in need.",
               qrData: "https://your-donation-link.com", // Replace with your actual donation link
             ),
-          ],
+          ),
         ),
-      ),
+      )
     );
   }
 }
@@ -71,7 +74,7 @@ class DonationCard extends StatelessWidget {
             const SizedBox(height: 16),
             // QR Code
             Image.asset(
-              "lib/images/qr.png",
+              "lib/images/qrAaroha.jpg",
               width: 150.0,
               height: 150.0,
               fit: BoxFit.cover,
