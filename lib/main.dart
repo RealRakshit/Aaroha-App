@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:aaroha/firebase_options.dart';
 import 'package:aaroha/pages/home.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -23,7 +24,7 @@ void main() async {
     )
         : DefaultFirebaseOptions.currentPlatform,
   );
-
+  FirebaseAuth auth = FirebaseAuth.instance;
   runApp(const MyApp());
 }
 
