@@ -1,4 +1,6 @@
 
+import 'package:aaroha/components/app_bar.dart';
+import 'package:aaroha/pages/LoginPage.dart';
 import 'package:aaroha/pages/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +33,14 @@ class _EmailVerificationState extends State<EmailVerification> {
     if (isEmailVerified) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const HomePage()),
+        MaterialPageRoute(builder: (context) => const LoginPage()),
+      );
+    }
+    if (!isEmailVerified) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Email not verified. Please check your inbox.'),
+        ),
       );
     }
   }
@@ -68,8 +77,12 @@ class _EmailVerificationState extends State<EmailVerification> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Email Verification", style: TextStyle(fontSize: 25)),
+      appBar: PreferredSize(preferredSize: const Size.fromHeight(90),
+        child: CustomAppBar(
+          title: "Email Verification",
+          titleTheme: Theme.of(context).textTheme.titleLarge,
+          iconColor: Theme.of(context).colorScheme.primary,
+        ),
       ),
       body: Center(
         child: isEmailVerified
