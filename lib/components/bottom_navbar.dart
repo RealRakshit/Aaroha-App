@@ -28,7 +28,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
       body:pages[myIndex],
     
       bottomNavigationBar:SizedBox(
-      height:75.0,
+      height:70.0,
       child:ClipRRect(
       
       borderRadius: const BorderRadius.only(
