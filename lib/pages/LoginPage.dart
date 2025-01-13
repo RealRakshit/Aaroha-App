@@ -3,6 +3,8 @@ import 'package:aaroha/pages/SignUp.dart';
 import 'package:aaroha/pages/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+// import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -18,6 +20,35 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController passwordcontroller = TextEditingController();
 
   final _formkey = GlobalKey<FormState>();
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+
+
+
+  Future<User?> signInWithGoogle() async {
+    try {
+      final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => const MyHomePage(title: 'title')));
+      if (googleUser == null) {
+        return null; // The user canceled the sign-in
+      }
+
+      final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+
+      final UserCredential userCredential = await _auth.signInWithCredential(credential);
+      return userCredential.user;
+    } catch (e) {
+      print('Error during Google Sign-In: $e');
+      return null;
+    }
+  }
 
   userLogin() async {
     try {
@@ -137,7 +168,7 @@ class _LoginPageState extends State<LoginPage> {
                               borderRadius: BorderRadius.circular(30)),
                           child: const Center(
                               child: Text(
-                                "Sign_In",
+                                "Sign in",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 22.0,
@@ -190,8 +221,16 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 GestureDetector(
-                  onTap: () {
+                  onTap: () async{
                     // AuthMethods().signInWithGoogle(context);
+                    final user = await signInWithGoogle();
+                    if (user != null) {
+                      print('Signed in as ${user.displayName}');
+                      // Navigator.pushReplacement(
+                      //     context, MaterialPageRoute(builder: (context) => const MyHomePage(title: 'title')));
+                    } else {
+                      print('Sign-In canceled or failed');
+                    }
                   },
                   child: Image.asset(
                     "lib/images/google.png",

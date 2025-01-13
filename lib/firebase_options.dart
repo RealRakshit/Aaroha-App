@@ -41,48 +41,49 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDpgGhRJnji_6-zrwpFQeNIz5FNQlL4DF4',
-    appId: '1:55283264807:web:ebcb21c7d2dc14ae5f0d02',
-    messagingSenderId: '55283264807',
-    projectId: 'aaroha-application',
-    authDomain: 'aaroha-application.firebaseapp.com',
-    storageBucket: 'aaroha-application.firebasestorage.app',
-    measurementId: 'G-1LXWNWZXR7',
+    apiKey: 'AIzaSyCur-CAJyP_xWvO4vkygTtHRmmHXaz5KsI',
+    appId: '1:1066233643421:web:210dc448f8c9cb82c1af74',
+    messagingSenderId: '1066233643421',
+    projectId: 'aaroha-app-25fd3',
+    authDomain: 'aaroha-app-25fd3.firebaseapp.com',
+    storageBucket: 'aaroha-app-25fd3.firebasestorage.app',
+    measurementId: 'G-WTGG3HYZYW',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCeiWgJpobn6Gmk1tRzir-MageHsKlO6oc',
-    appId: '1:55283264807:android:ddf7cf394f77bdae5f0d02',
-    messagingSenderId: '55283264807',
-    projectId: 'aaroha-application',
-    storageBucket: 'aaroha-application.firebasestorage.app',
+    apiKey: 'AIzaSyAu8b6-nfmaGnuuYnLHQcc_Ql67gnDvddw',
+    appId: '1:1066233643421:android:3cd4e2c8bfc7aa92c1af74',
+    messagingSenderId: '1066233643421',
+    projectId: 'aaroha-app-25fd3',
+    storageBucket: 'aaroha-app-25fd3.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyD9B9XuXtPA3BxzFzGHO5UIcbeeI5ShPh0',
-    appId: '1:55283264807:ios:4055e8b0f8295fc45f0d02',
-    messagingSenderId: '55283264807',
-    projectId: 'aaroha-application',
-    storageBucket: 'aaroha-application.firebasestorage.app',
+    apiKey: 'AIzaSyAV2TzUnNLGBw9PZwhbQOqiSfTVI_R8qkk',
+    appId: '1:1066233643421:ios:04d97bd1208ebc39c1af74',
+    messagingSenderId: '1066233643421',
+    projectId: 'aaroha-app-25fd3',
+    storageBucket: 'aaroha-app-25fd3.firebasestorage.app',
     iosBundleId: 'com.example.aaroha',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyD9B9XuXtPA3BxzFzGHO5UIcbeeI5ShPh0',
-    appId: '1:55283264807:ios:4055e8b0f8295fc45f0d02',
-    messagingSenderId: '55283264807',
-    projectId: 'aaroha-application',
-    storageBucket: 'aaroha-application.firebasestorage.app',
+    apiKey: 'AIzaSyAV2TzUnNLGBw9PZwhbQOqiSfTVI_R8qkk',
+    appId: '1:1066233643421:ios:04d97bd1208ebc39c1af74',
+    messagingSenderId: '1066233643421',
+    projectId: 'aaroha-app-25fd3',
+    storageBucket: 'aaroha-app-25fd3.firebasestorage.app',
     iosBundleId: 'com.example.aaroha',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyDpgGhRJnji_6-zrwpFQeNIz5FNQlL4DF4',
-    appId: '1:55283264807:web:94ab4d7db0404e3c5f0d02',
-    messagingSenderId: '55283264807',
-    projectId: 'aaroha-application',
-    authDomain: 'aaroha-application.firebaseapp.com',
-    storageBucket: 'aaroha-application.firebasestorage.app',
-    measurementId: 'G-VY99JM265J',
+    apiKey: 'AIzaSyCur-CAJyP_xWvO4vkygTtHRmmHXaz5KsI',
+    appId: '1:1066233643421:web:efd82c228f099ccac1af74',
+    messagingSenderId: '1066233643421',
+    projectId: 'aaroha-app-25fd3',
+    authDomain: 'aaroha-app-25fd3.firebaseapp.com',
+    storageBucket: 'aaroha-app-25fd3.firebasestorage.app',
+    measurementId: 'G-S4VKN2E6TB',
   );
+
 }
