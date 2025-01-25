@@ -1,36 +1,35 @@
 import 'dart:math';
-import 'package:aaroha/pages/LoginPage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 
-class AuthGuard extends StatelessWidget {
-  final Widget child;
-
-  AuthGuard({required this.child});
-
-  @override
-  Widget build(BuildContext context) {
-    return StreamBuilder<User?>(
-      stream: FirebaseAuth.instance.authStateChanges(),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
-        }
-        if (snapshot.hasData) {
-          // User is logged in
-          return child;
-        } else {
-          // User is not logged in, redirect to login page
-
-          return LoginPage();
-        }
-      },
-    );
-  }
-}
+// class AuthGuard extends StatelessWidget {
+//   final Widget child;
+//
+//   AuthGuard({required this.child});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return StreamBuilder<User?>(
+//       stream: FirebaseAuth.instance.authStateChanges(),
+//       builder: (context, snapshot) {
+//         if (snapshot.connectionState == ConnectionState.waiting) {
+//           return Center(child: CircularProgressIndicator());
+//         }
+//         if (snapshot.hasData) {
+//           // User is logged in
+//           return child;
+//         } else {
+//           // User is not logged in, redirect to login page
+//
+//           return LoginPage();
+//         }
+//       },
+//     );
+//   }
+// }
 
 class TeachingDetails extends StatelessWidget {
   final TextEditingController topicController = TextEditingController();
@@ -43,8 +42,7 @@ class TeachingDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AuthGuard(
-      child: Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: const Text(
           "Teaching Details",
@@ -161,8 +159,8 @@ class TeachingDetails extends StatelessWidget {
           ],
         ),
       ),
-      ),
-    );
+      );
+
   }
 }
 

@@ -1,4 +1,4 @@
-import 'package:aaroha/pages/LoginPage.dart';
+
 import 'package:flutter/material.dart';
 import 'home.dart';
 
@@ -37,10 +37,10 @@ class _AnimationScreenState extends State<AnimationScreen>
 
     _controller.forward();
 
-    Future.delayed(const Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 2), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => LoginPage()),
+        MaterialPageRoute(builder: (context) => const MyHomePage(title: 'title')),
       );
       // Navigator.pushReplacementNamed(context, '/pages/LoginPage');
     });
